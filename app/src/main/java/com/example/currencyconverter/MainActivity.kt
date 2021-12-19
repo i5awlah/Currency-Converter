@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun fetchAPI(result: (Currency?) -> Unit) {
-        val apiInterface = APIClient().getClient()?.create(APIInterface::class.java)
+        //val apiInterface = APIClient().getClient()?.create(APIInterface::class.java)
+        val apiInterface = APIClient.getClient()?.create(APIInterface::class.java)
         apiInterface?.getCurrency()?.enqueue(object : Callback<Currency>{
             override fun onResponse(call: Call<Currency>, response: Response<Currency>) {
                 try {
